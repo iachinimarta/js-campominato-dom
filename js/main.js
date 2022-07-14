@@ -1,6 +1,22 @@
 //Seleziono il button a cui aggiungere l event listener
 const btn = document.getElementById('btn');
 
+//Creo un array per le bombe
+let bombs = [];
+
+//Genero 16 numeri casuali
+for (let i = 0; i < 16; i++) {
+     let randomNumbers = Math.round(Math.random() * 100);
+
+     //Inserisco i 16 numeri nell array "bombs"
+    bombs.push(randomNumbers);
+}
+console.log(bombs);
+
+//Creo un array per i numeri nei box
+let newBoxArray = [];
+
+
 //Aggiungo un event listner al btn
 btn.addEventListener('click',
     function() {
@@ -10,7 +26,7 @@ btn.addEventListener('click',
 
         //Imposto un blocco vuoto che mi funzionerà come un reset
         container.innerHTML = "";
-
+        
         //Imposto un ciclo for per stampare i box fino a n 100
         for (let i = 1; i <= 100; i++) {
 
@@ -25,6 +41,9 @@ btn.addEventListener('click',
 
             //Inserisco all interno del box il numero della sua posizione
             newBox.append(i);
+
+            //Inserisco nell array creato per i box i numeri che sono stati associati ad ogni box
+            newBoxArray.push(i);
 
             //Aggiungo un event listener al box 
             newBox.addEventListener('click',
@@ -41,6 +60,22 @@ btn.addEventListener('click',
                     
                 }
             );
+            
         }
+
+        //Prova per confrontare i due array
+        console.log(newBoxArray);
+        for (i = 0; i < bombs.length; i++) {
+            console.log("prova");
+
+            let numeri = bombs[i];
+
+            if (newBoxArray.includes(numeri)) {
+                console.log("OK");
+            }
+        }
+
+        console.log("PROVA1");
     }
 );
+

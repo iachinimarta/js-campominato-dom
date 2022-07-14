@@ -58,3 +58,7 @@ main {
 .bg-yellow {
     background-color: rgb(235, 233, 113);
 }
+
+.prova-bomba {
+    background-color: red;
+}
