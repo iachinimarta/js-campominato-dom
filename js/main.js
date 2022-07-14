@@ -59,26 +59,15 @@ btn.addEventListener('click',
                     
                     //Imposto una condizione per non stampare due volte lo stesso numero del box nella console.log
                     if (!newBox.classList.contains('bg-yellow')) {
-                        console.log('Hai selezionato il numero: ' + newBoxArray[i]);
+                        console.log('Hai selezionato il numero: ' + i);
                     }
-                    
+
                     //Al click lo sfondo cambia in giallo e stampo il numero del box scelto in console.log
                     //Aggiungo "toggle" = se la classe c'è, la toglie. Se non c'è, la aggiunge.
                     newBox.classList.toggle("bg-yellow");
-
-                    if (newBoxArray.includes(bombs[i])) {
-                        console.log("bomba");
-                    }
-                    
                 }
             );
         }      
     }
 );
-
-// for (i = 0; i < newBoxArray.length; i++) {
-//     if (bombs.includes(i)) {
-//         console.log(newBoxArray[i], i);
-//     }
-// }
 
