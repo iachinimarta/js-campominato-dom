@@ -21,11 +21,11 @@ console.log(bombs);
 //Creo un array per i numeri nei box
 let newBoxArray = [];
 
-for (i = 1; i <= 100; i++) {
-    let numeri1a100 = i;
-    newBoxArray.push(numeri1a100);
-}
-console.log(newBoxArray);
+// for (i = 1; i <= 100; i++) {
+//     let numeri1a100 = i;
+//     newBoxArray.push(numeri1a100);
+// }
+// console.log(newBoxArray);
 
 
 //Aggiungo un event listner al btn
@@ -62,9 +62,15 @@ btn.addEventListener('click',
                         console.log('Hai selezionato il numero: ' + i);
                     }
 
-                    //Al click lo sfondo cambia in giallo e stampo il numero del box scelto in console.log
-                    //Aggiungo "toggle" = se la classe c'è, la toglie. Se non c'è, la aggiunge.
-                    newBox.classList.toggle("bg-yellow");
+                    //Se nell array delle bombe è presente un numero uguale a un numero di un box
+                    if (bombs.includes(i)) {
+                        console.log("BOOM");
+                        newBox.classList.add("check-bomb");
+                    } else {
+                        //Altrimenti lo sfondo cambia in giallo e stampo il numero del box scelto in console.log
+                        //Con "toggle" = se la classe c'è, la toglie. Se non c'è, la aggiunge.
+                        newBox.classList.toggle("bg-yellow");
+                    }
                 }
             );
         }      
