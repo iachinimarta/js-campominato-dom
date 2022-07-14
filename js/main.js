@@ -16,6 +16,13 @@ console.log(bombs);
 //Creo un array per i numeri nei box
 let newBoxArray = [];
 
+for (i = 1; i <= 100; i++) {
+    let numeri1a100 = i;
+    newBoxArray.push(numeri1a100);
+}
+
+console.log(newBoxArray);
+
 
 //Aggiungo un event listner al btn
 btn.addEventListener('click',
@@ -28,7 +35,7 @@ btn.addEventListener('click',
         container.innerHTML = "";
         
         //Imposto un ciclo for per stampare i box fino a n 100
-        for (let i = 1; i <= 100; i++) {
+        for (let i = 0; i < 100; i++) {
 
             //Creo un div da inserire nel container
             let newBox = document.createElement("div");
@@ -40,10 +47,7 @@ btn.addEventListener('click',
             container.append(newBox);
 
             //Inserisco all interno del box il numero della sua posizione
-            newBox.append(i);
-
-            //Inserisco nell array creato per i box i numeri che sono stati associati ad ogni box
-            newBoxArray.push(i);
+            newBox.append(newBoxArray[i]);
 
             //Aggiungo un event listener al box 
             newBox.addEventListener('click',
@@ -60,22 +64,7 @@ btn.addEventListener('click',
                     
                 }
             );
-            
         }
-
-        //Prova per confrontare i due array
-        console.log(newBoxArray);
-        for (i = 0; i < bombs.length; i++) {
-            console.log("prova");
-
-            let numeri = bombs[i];
-
-            if (newBoxArray.includes(numeri)) {
-                console.log("OK");
-            }
-        }
-
-        console.log("PROVA1");
     }
 );
 
