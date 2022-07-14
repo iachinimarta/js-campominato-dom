@@ -18,16 +18,6 @@ for (let i = 0; i < 16; i++) {
 }
 console.log(bombs);
 
-//Creo un array per i numeri nei box
-let newBoxArray = [];
-
-// for (i = 1; i <= 100; i++) {
-//     let numeri1a100 = i;
-//     newBoxArray.push(numeri1a100);
-// }
-// console.log(newBoxArray);
-
-
 //Aggiungo un event listner al btn
 btn.addEventListener('click',
     function() {
