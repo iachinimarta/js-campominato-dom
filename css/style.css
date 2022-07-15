@@ -62,3 +62,8 @@ main {
 .check-bomb {
     background-color: red;
 }
+
+#counter {
+    text-align: center;
+    font-weight: bold;
+}

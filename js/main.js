@@ -1,3 +1,5 @@
+let end = false;
+
 //Seleziono il button a cui aggiungere l event listener
 const btn = document.getElementById('btn');
 
@@ -18,9 +20,12 @@ for (let i = 0; i < 16; i++) {
 }
 console.log(bombs);
 
+let score = 0;
+
 //Aggiungo un event listner al btn
 btn.addEventListener('click',
     function() {
+        
 
         //Richiamo il container in cui voglio stampare
         const container = document.getElementById('container');
@@ -46,20 +51,20 @@ btn.addEventListener('click',
             //Aggiungo un event listener al box 
             newBox.addEventListener('click',
                 function () {
-                    
-                    //Imposto una condizione per non stampare due volte lo stesso numero del box nella console.log
-                    if (!newBox.classList.contains('bg-yellow')) {
-                        console.log('Hai selezionato il numero: ' + i);
-                    }
+                    if (end == false) {
+                        newBox.classList.add("bg-yellow");
+                        score++;
+                        console.log("Sei a " + score + " punti!");
+                        let counter = document.getElementById("counter");
+                        counter.innerHTML = "Il tuo punteggio è: " + score;
 
-                    //Se nell array delle bombe è presente un numero uguale a un numero di un box
-                    if (bombs.includes(i)) {
-                        console.log("BOOM");
-                        newBox.classList.add("check-bomb");
-                    } else {
-                        //Altrimenti lo sfondo cambia in giallo e stampo il numero del box scelto in console.log
-                        //Con "toggle" = se la classe c'è, la toglie. Se non c'è, la aggiunge.
-                        newBox.classList.toggle("bg-yellow");
+                        if (bombs.includes(i)) {
+                            newBox.classList.add("check-bomb");
+                            console.log("BOOM!");
+                            score = score - 1;
+                            counter.innerHTML = "HAI PERSO! <br> Il tuo punteggio fino a qui è: " + score;
+                            end = true;
+                        }
                     }
                 }
             );
